@@ -10,17 +10,20 @@ struct Node *node_create(int data, struct Node *next);
 struct Node *node_insert_at(struct Node *head, struct Node *node, int position);
 struct Node *node_delete_at(struct Node *head, int position);
 struct Node *node_reverse_list(struct Node *head);
+struct Node *node_merge_sorted(struct Node *headA, struct Node *headB);
 
 void print_list(struct Node *head);
 void test_insert_at();
 void test_delete_at();
 void test_reverse_list();
+void test_merge_sorted();
 
 int main(int argc, char *argv[])
 {
-    test_insert_at();
-    test_delete_at();
-    test_reverse_list();
+    // test_insert_at();
+    // test_delete_at();
+    // test_reverse_list();
+    test_merge_sorted();
     return 0;
 }
 
@@ -94,6 +97,40 @@ void test_delete_at() {
 
     h = node_delete_at(h, 0);
     print_list(h);
+
+    printf("------\n");
+}
+
+void test_merge_sorted() {
+    printf("------ Test Merge Sorted \n");
+
+    printf("LL A: \n");
+    struct Node *hA = node_create(1, NULL);
+    struct Node *aA = node_create(3, NULL);
+    struct Node *bA = node_create(6, NULL);
+    struct Node *cA = node_create(9, NULL);
+    hA->next = aA;
+    aA->next = bA;
+    bA->next = cA;
+    cA->next = NULL;
+
+    print_list(hA);
+
+    printf("LL B: \n");
+    struct Node *hB = node_create(2, NULL);
+    struct Node *aB = node_create(4, NULL);
+    struct Node *bB = node_create(5, NULL);
+    struct Node *cB = node_create(7, NULL);
+
+    hB->next = aB;
+    aB->next = bB;
+    bB->next = cB;
+    cB->next = NULL;
+    print_list(hB);
+
+    printf("LL Merged and sorted: \n");
+    hA = node_merge_sorted(hA, hB);
+    print_list(hA);
 
     printf("------\n");
 }
@@ -177,4 +214,15 @@ struct Node *node_reverse_list(struct Node *head) {
     }
 
     return prev;
+}
+
+// NOT IMPLEMENTED
+struct Node *node_merge_sorted(struct Node *headA, struct Node *headB) {
+    if (headA == NULL)
+        return headB;
+
+    if (headB == NULL)
+        return headA;
+
+    return headA;
 }

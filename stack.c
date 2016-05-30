@@ -1,19 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "stack.h"
+
 /**
  * Stack implementation using singly linked list
  */
-
-struct Stack {
-    struct Node* top;
-};
-
-struct Node {
-    int data;
-    struct Node *next;
-};
-
 void Pop(struct Stack* s) {
     struct Node *tmp = s->top;
     if (tmp == NULL) return;
@@ -36,34 +28,16 @@ struct Stack *Stack_Create() {
     return s;
 }
 
-void Print(struct Stack *s) {
+int Stack_Empty(struct Stack *s) {
+    return s->top == NULL ? 1 : 0;
+}
+
+void Print_Stack(struct Stack *s) {
     struct Node *node = s->top;
+    printf("%d ", node->data);
     while(node != NULL) {
         printf("%d ", node->data);
         node = node->next;
     }
     printf("\n");
-}
-
-int main(int argc, char *argv[]) {
-    struct Stack *s = Stack_Create();
-
-    Pop(s);
-
-    Push(s, 5);
-    Print(s);
-    Push(s, 12);
-    Print(s);
-    Push(s, 23);
-    Print(s);
-    Push(s, 1);
-    Print(s);
-
-    Pop(s);
-    Print(s);
-    Pop(s);
-    Print(s);
-
-    Push(s, 4895);
-    Print(s);
 }
