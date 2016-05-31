@@ -1,11 +1,12 @@
+/**
+ * Stack implementation using singly linked list
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "stack.h"
 
-/**
- * Stack implementation using singly linked list
- */
 void Pop(struct Stack* s) {
     struct Node *tmp = s->top;
     if (tmp == NULL) return;

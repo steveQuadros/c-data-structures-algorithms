@@ -1,8 +1,9 @@
 *
-!.gitkeep
 !*.c
 !*.h
+!/ll
 !/stack
+!/queue
 
 # Object files
 *.o
