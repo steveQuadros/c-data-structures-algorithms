@@ -1,3 +1,9 @@
+*
+!.gitkeep
+!*.c
+!*.h
+!/stack
+
 # Object files
 *.o
 *.ko

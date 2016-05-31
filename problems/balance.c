@@ -31,7 +31,7 @@ int is_balanced(char *str) {
         }
     }
 
-    return Stack_Empty(s) ? 1 : 0;
+    return Stack_Empty(s);
 }
 
 int same_type(char o, char c) {
