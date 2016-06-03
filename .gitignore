@@ -1,9 +1,10 @@
 *
 !*.c
 !*.h
-!/ll
-!/stack
-!/queue
+!/ll/*.c
+!/stack/*.c
+!/queue/*.c
+!/bst/*.c
 
 # Object files
 *.o
